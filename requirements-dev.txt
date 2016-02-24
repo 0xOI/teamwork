@@ -1,0 +1,10 @@
+-r requirements.txt
+coverage
+flake8
+ipdb
+ipython==1.2.1
+mock
+pre-commit>=0.4.2
+pytest
+freezegun
+pep8>=1.5.7,<1.6

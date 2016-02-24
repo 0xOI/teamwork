@@ -1,0 +1,30 @@
+-   repo: git@git.yelpcorp.com:mirrors/pre-commit/pre-commit-hooks
+    sha: 616c1ebd1898c91de9a0548866a59cbd9f4547f6
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: debug-statements
+        language_version: python2.7
+    -   id: name-tests-test
+    -   id: flake8
+        language_version: python2.7
+-   repo: git@git.yelpcorp.com:yelp_pre_commit_hooks
+    sha: b450181e856b5cae7f2d0de3c3c2bc4a2eeb73a3
+    hooks:
+    -   id: stop-dollar-html
+    -   id: httplib-https-connection
+    -   id: use-except-as
+    -   id: check_mock_methods
+        language_version: python2.7
+    -   id: byte_order_mark
+    -   id: fix-encoding-pragma
+    -   id: check-added-large-files
+-   repo: git@git.yelpcorp.com:mirrors/asottile/reorder_python_imports
+    sha: 3d86483455ab5bd06cc1069fdd5ac57be5463f10
+    hooks:
+    -   id: reorder-python-imports
+        language_version: python2.7
+        args:
+        - --add-import
+        - from __future__ import absolute_import
