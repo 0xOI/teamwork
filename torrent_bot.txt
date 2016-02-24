@@ -1,0 +1,31 @@
+#!/bin/bash
+touch /tmp/foo
+
+# install required system packages
+apt-get update
+apt-get -y install deluged deluge-console deluge-web
+apt-get -y install python-virtualenv
+apt-get -y install aufs-tools
+
+# mount aws instance local storage
+mkfs /dev/xvdb
+mkdir /home/ubuntu/bagz
+mount -t ext4 -o rw /dev/xvdb /home/ubuntu/bagz
+chown -R ubuntu:ubuntu /home/ubuntu/bagz
+
+# launch deluge daemon
+deluged
+
+# configure deluge via deluge-console
+deluge-console "config --set add_paused False"
+deluge-console "config --set allow_remote True"
+deluge-console "config --set autoadd_enable True"
+deluge-console "config --set autoadd_location /home/ubuntu/bagz"
+deluge-console "config --set download_location /home/ubuntu/bagz"
+deluge-console "config --set move_completed True"
+deluge-console "config --set move_completed_path /home/ubuntu/bagz"
+deluge-console "config --set copy_torrent_file True"
+deluge-console "config --set torrentfiles_location /home/ubuntu/bagz/torrents"
+
+# launch deluge web ui
+deluge-web --fork 
