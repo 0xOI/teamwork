@@ -49,12 +49,12 @@ def create_torrent(filepath, tracker='udp://tracker.openbittorrent.com:80/announ
             tf.write(mk.getBencoded())
 
 
-class TorrentClientPlugin(elk.Elk):
+class TorrentPeerPlugin(elk.Elk):
     __with__ = ModePlugin
 
     def add_parser(self, subparsers):
         description = 'manages host torrent activity'
-        parser = subparsers.add_parser('torrent-client', description=description, help=description,
+        parser = subparsers.add_parser('torrent-peer', description=description, help=description,
                                        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
         parser.add_argument('-u', '--upload-dir', default='bagz', help="directory to upload files to")
         parser.add_argument('-p', '--port', type=int, default=7777, help="port to listen on")
