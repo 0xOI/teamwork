@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import
-from __future__ import unicode_literals
 
 import argparse
 
 import teamwork.modes
 from teamwork import __version__
-from teamwork.utils.introspect_utils import find_classes_in_package
 from teamwork.plugin_bases import ModePlugin
+from teamwork.utils.introspect_utils import find_classes_in_package
 
 
 def main():
@@ -27,6 +26,3 @@ def main():
 
 if __name__ == '__main__':
     exit(main())
-
-
-

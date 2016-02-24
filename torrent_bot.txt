@@ -28,4 +28,4 @@ deluge-console "config --set copy_torrent_file True"
 deluge-console "config --set torrentfiles_location /home/ubuntu/bagz/torrents"
 
 # launch deluge web ui
-deluge-web --fork 
+deluge-web --fork

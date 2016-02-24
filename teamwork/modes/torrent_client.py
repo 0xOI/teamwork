@@ -2,19 +2,21 @@
 from __future__ import absolute_import
 
 import argparse
+import ntpath
+import os
+import socket
+
 import elk
 from flask import Flask
 from flask import request
 from makeTorrent import makeTorrent
-import ntpath
 from werkzeug import secure_filename
-import os
-import socket
 
 from teamwork.plugin_bases import ModePlugin
 
 
 app = Flask(__name__)
+
 
 @app.route("/health")
 def health():
@@ -62,6 +64,3 @@ class TorrentClientPlugin(elk.Elk):
     def main(self, args):
         app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), args.upload_dir)
         app.run(host='0.0.0.0', port=args.port)
-
-
-
