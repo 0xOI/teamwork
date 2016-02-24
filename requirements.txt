@@ -1,0 +1,4 @@
+argparse==1.2.1
+elk==0.3
+Flask==0.10.1
+makeTorrent==0.14
